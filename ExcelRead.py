@@ -75,11 +75,11 @@ def drawPictureTogether(i, j, shift, num):
     l5 = plt.scatter([item + shift for item in p["col_i5"]], p["col_j5"], label = 'E6', s=1.0)
     plt.axis([0, 7, 0, 9000])
     # 添加文本 #x轴文本
-    plt.xlabel('x坐标轴自己写')
+    plt.xlabel('Déplacement (mm)')
     # y轴文本
-    plt.ylabel('y坐标轴自己写')
+    plt.ylabel('Force(N)')
     # 标题
-    plt.title('标题自己写')
+    plt.title('Force-Déplacement')
     # 图例
     plt.legend()
     plt.show()
