@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import xlrd
 import pandas as pd
 
-csv_data = pd.read_csv('plaque-5-force-contrainte-deformation.csv',header=None)  # 读取CSV
+csv_data = pd.read_csv('plaque-8-force-contrainte-deplacement.csv',header=None)  # 读取CSV
 # file = 'plaque-2-force-contrainte-deformation.xlsx'
 # wb = xlrd.open_workbook(filename=file)  # 打开文件
 # print(wb.sheet_names())  # 获取所有表格名字
@@ -81,7 +81,7 @@ drawPictureTogether(x轴的数据列，y轴的数据列，偏移值，一共几�
 '''
 
 
-def drawForcePictureTogether(i, j, shift, num):
+def drawForcePictureTogether(i, j, shift, shift_y, num):
     p = {}
     for n in range(num):
         # p["col_i" + str(n)], p["col_j" + str(n)] = getData(i, j)
@@ -89,19 +89,19 @@ def drawForcePictureTogether(i, j, shift, num):
         i = i+4
         j = j+4
 
-    l0 = plt.plot([item + shift for item in p["col_i0"]], p["col_j0"], label = 'E1', linewidth=1.0)
-    l1 = plt.plot([item + shift for item in p["col_i1"]], p["col_j1"], label = 'E2', linewidth=1.0)
-    l2 = plt.plot([item + shift for item in p["col_i2"]], p["col_j2"], label = 'E3', linewidth=1.0)
-    l3 = plt.plot([item + shift for item in p["col_i3"]], p["col_j3"], label = 'E4', linewidth=1.0)
-    l4 = plt.plot([item + shift for item in p["col_i4"]], p["col_j4"], label = 'E5', linewidth=1.0)
-    l5 = plt.plot([item + shift for item in p["col_i5"]], p["col_j5"], label = 'E6', linewidth=1.0)
-    plt.axis([0, 8, 0, 8000])
+    l0 = plt.plot([item + -0.4 for item in p["col_i0"]], [item + shift_y for item in p["col_j0"]], label = 'E1', linewidth=1.0)
+    l1 = plt.plot([item + -0.2 for item in p["col_i1"]], [item + shift_y for item in p["col_j1"]], label = 'E2', linewidth=1.0)
+    l2 = plt.plot([item + -0.45 for item in p["col_i2"]], [item + shift_y for item in p["col_j2"]], label = 'E3', linewidth=1.0)
+    l3 = plt.plot([item + -0.5 for item in p["col_i3"]], [item + shift_y for item in p["col_j3"]], label = 'E4', linewidth=1.0)
+    l4 = plt.plot([item + -0.65 for item in p["col_i4"]], [item + shift_y for item in p["col_j4"]], label = 'E5', linewidth=1.0)
+    l5 = plt.plot([item + -0.9 for item in p["col_i5"]], [item + shift_y for item in p["col_j5"]], label = 'E6', linewidth=1.0)
+    plt.axis([0, 8, 0, 7000])
     # 添加文本 #x轴文本
     plt.xlabel('Déplacement (mm)')
     # y轴文本
     plt.ylabel('Force(N)')
     # 标题
-    plt.title('Plaque5-Force-Déplacement')
+    plt.title('Plaque8-Force-Déplacement')
     # 图例
     plt.legend()
     plt.show()
@@ -109,7 +109,7 @@ def drawForcePictureTogether(i, j, shift, num):
 
 
 
-def drawContraintePictureTogether(i, j, shift, num):
+def drawContraintePictureTogether(i, j, shift, shift_y, num):
     p = {}
     for n in range(num):
         # p["col_i" + str(n)], p["col_j" + str(n)] = getData(i, j)
@@ -117,24 +117,24 @@ def drawContraintePictureTogether(i, j, shift, num):
         i = i+4
         j = j+4
 
-    l0 = plt.plot([item + shift for item in p["col_i0"]], p["col_j0"], label = 'E1', linewidth=1.0)
-    l1 = plt.plot([item + shift for item in p["col_i1"]], p["col_j1"], label = 'E2', linewidth=1.0)
-    l2 = plt.plot([item + shift for item in p["col_i2"]], p["col_j2"], label = 'E3', linewidth=1.0)
-    l3 = plt.plot([item + shift for item in p["col_i3"]], p["col_j3"], label = 'E4', linewidth=1.0)
-    l4 = plt.plot([item + shift for item in p["col_i4"]], p["col_j4"], label = 'E5', linewidth=1.0)
-    l5 = plt.plot([item + shift for item in p["col_i5"]], p["col_j5"], label = 'E6', linewidth=1.0)
+    l0 = plt.plot([item + -0.4 for item in p["col_i0"]], [item + shift_y for item in p["col_j0"]], label = 'E1', linewidth=1.0)
+    l1 = plt.plot([item + -0.2 for item in p["col_i1"]], [item + shift_y for item in p["col_j1"]], label = 'E2', linewidth=1.0)
+    l2 = plt.plot([item + -0.45 for item in p["col_i2"]], [item + shift_y for item in p["col_j2"]], label = 'E3', linewidth=1.0)
+    l3 = plt.plot([item + -0.5 for item in p["col_i3"]], [item + shift_y for item in p["col_j3"]], label = 'E4', linewidth=1.0)
+    l4 = plt.plot([item + -0.65 for item in p["col_i4"]], [item + shift_y for item in p["col_j4"]], label = 'E5', linewidth=1.0)
+    l5 = plt.plot([item + -0.9 for item in p["col_i5"]], [item + shift_y for item in p["col_j5"]], label = 'E6', linewidth=1.0)
     # print(len(p["col_i5"]))
     # print(len(p["col_j5"]))
-    plt.axis([0, 8, 0, 650])
+    plt.axis([0, 8, 0, 300])
     # 添加文本 #x轴文本
     plt.xlabel('Déplacement (mm)')
     # y轴文本
     plt.ylabel('Contrainte (MPa)')
     # 标题
-    plt.title('Plaque5-Contrainte-Déplacement')
+    plt.title('Plaque8-Contrainte-Déplacement')
     # 图例
     plt.legend()
     plt.show()
 
-drawForcePictureTogether(0, 1, -0.4, 6)
-drawContraintePictureTogether(0,2,-0.4,6)
+drawForcePictureTogether(0, 1, 0, 0, 6)
+drawContraintePictureTogether(0,2, 0, 0, 6)
